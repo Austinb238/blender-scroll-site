@@ -29,7 +29,11 @@ const closeGallery = makeOverlay("gallery-tab", "gallery-overlay", "gallery-clos
 const closeDocker  = makeOverlay("docker-tab",  "docker-overlay",  "docker-close");
 const closeCyber   = makeOverlay("cyber-tab",   "cyber-overlay",   "cyber-close");
 const closeCS      = makeOverlay("cs-tab",      "cs-overlay",      "cs-close");
+const closeBuy     = makeOverlay("buy-tab",     "buy-overlay",     "buy-close");
+
+const ctaBuy = document.getElementById("cta-buy");
+if (ctaBuy) ctaBuy.addEventListener("click", (e) => { e.preventDefault(); document.getElementById("buy-overlay").classList.add("open"); document.getElementById("buy-overlay").setAttribute("aria-hidden","false"); const v = document.getElementById("hero-video"); if(v) v.pause(); });
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") { closeGallery(); closeDocker(); closeCyber(); closeCS(); }
+  if (e.key === "Escape") { closeGallery(); closeDocker(); closeCyber(); closeCS(); closeBuy(); }
 });
